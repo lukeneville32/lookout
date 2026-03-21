@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image-to-Video Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="app__eyebrow">Creator toolkit</p>
+          <h1>Image-to-Video Studio</h1>
+          <p class="app__subhead">
+            Turn a single image into a short cinematic clip with smooth motion and an export-ready video.
+          </p>
+        </div>
+        <div class="status" id="status">Ready to create.</div>
+      </header>
+
+      <section class="panel">
+        <div class="panel__left">
+          <label class="field">
+            <span>Upload an image</span>
+            <input id="imageInput" type="file" accept="image/*" />
+          </label>
+
+          <div class="preview" id="preview">
+            <img id="imagePreview" alt="Preview" />
+            <div class="preview__empty" id="previewEmpty">
+              <p>Drop an image to preview.</p>
+            </div>
+          </div>
+
+          <div class="controls">
+            <label class="field">
+              <span>Clip duration (seconds)</span>
+              <input id="durationInput" type="number" min="2" max="10" step="1" value="4" />
+            </label>
+            <label class="field">
+              <span>Frame rate (fps)</span>
+              <input id="fpsInput" type="number" min="12" max="60" step="1" value="30" />
+            </label>
+            <label class="field">
+              <span>Motion style</span>
+              <select id="motionSelect">
+                <option value="zoom">Soft zoom-in</option>
+                <option value="pan">Gentle pan</option>
+                <option value="orbit">Orbit + zoom</option>
+              </select>
+            </label>
+          </div>
+
+          <button id="generateButton" class="primary">Generate video</button>
+        </div>
+
+        <div class="panel__right">
+          <div class="output">
+            <video id="videoOutput" controls playsinline></video>
+            <div class="output__placeholder" id="outputEmpty">
+              <p>Your rendered video will appear here.</p>
+            </div>
+          </div>
+          <div class="output__actions">
+            <a id="downloadLink" class="secondary" download="image-video.webm">Download video</a>
+            <button id="resetButton" class="ghost">Reset</button>
+          </div>
+          <div class="tips">
+            <h2>Tips for better clips</h2>
+            <ul>
+              <li>Use high-resolution images for sharper videos.</li>
+              <li>Try a longer duration for slower, cinematic movement.</li>
+              <li>Switch motion styles to match the mood.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
